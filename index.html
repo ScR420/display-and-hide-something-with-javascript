@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tab-titles">
+        <p class="tab-links active-link" onclick="opentab(`skills`)">Skills</p>
+        <p class="tab-links" onclick="opentab(`experience`)">Experience</p>
+        <p class="tab-links" onclick="opentab(`education`)">Education</p>
+    </div>
+    <div class="tab-contents active-tab" id="skills">
+        <ul>
+            <li><span>UI?UX</span><br>Designing Web/app interfaces</li>
+            <li><span>Web Development</span><br>Web app Development</li>
+            <li><span>App Development</span><br>Building Android/ IOS apps</li>
+        </ul>
+    </div>
+    <div class="tab-contents" id="experience">
+        <ul>
+            <li><span>2022 - Current</span><br>Skill Training at Wibilea AG</li>
+        </ul>
+    </div>
+    <div class="tab-contents" id="education">
+        <ul>
+            <li><span>2022 - Current</span><br>Skill Training at Wibilea AG</li>
+            <li><span>2019 - 2022</span><br>School Rosenberg in Neuhausen am Rheinfall</li>
+            <li><span>2013 - 2019</span><br>Primary School</li>
+        </ul>
+    </div>
+    <script>
+
+        function opentab(tabName) {
+            var i, tabContent, tabLinks;
+
+            tabContent = document.getElementsByClassName("tab-contents");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+
+            tabLinks = document.getElementsByClassName("tab-links");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active-link", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active-link";
+        }
+        </script>
+</body>
+</html>
